@@ -9,8 +9,22 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-//@RunWith(Parameterized.class)
+@RunWith(Parameterized.class)
 public class FelineTest {
+
+    public FelineTest(int kittensCount) {
+        this.kittensCount = kittensCount;
+    }
+
+    int kittensCount;
+
+    @Parameterized.Parameters
+    public static Object[] getKittensCount() {
+        return new Object[] {
+                3,
+                5,
+        };
+    }
 
     @Test
     public void eatMeatPredatorTest() throws Exception {
@@ -26,10 +40,10 @@ public class FelineTest {
         Assert.assertEquals(expected ,feline.getFood("Травоядное"));
     }
 
-    @Test
+    @Test(expected = Exception.class)
     public void eatMeatUnknownTest() throws Exception {
         Feline feline = new Feline();
-//        (feline.getFood("Чудо-юдо")); //todo: throws
+        feline.getFood("Чудо-юдо");
     }
 
     @Test
@@ -51,7 +65,6 @@ public class FelineTest {
     @Test
     public void getKittensByNumberTest(){ //todo: param
         Feline feline = new Feline();
-        int kittensCount = 3;
         int expected = kittensCount;
         int actual = feline.getKittens(kittensCount);
         Assert.assertEquals(expected, actual);
