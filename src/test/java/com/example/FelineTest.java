@@ -63,7 +63,7 @@ public class FelineTest {
     }
 
     @Test
-    public void getKittensByNumberTest(){ //todo: param
+    public void getKittensByNumberTest(){
         Feline feline = new Feline();
         int expected = kittensCount;
         int actual = feline.getKittens(kittensCount);
