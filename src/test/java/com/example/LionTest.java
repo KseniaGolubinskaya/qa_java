@@ -1,17 +1,11 @@
 package com.example;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
 public class LionTest {
@@ -41,10 +35,11 @@ public class LionTest {
     }
 
     @Test
-    public void getKittensLionTest(){
+    public void getKittensLionTest() throws Exception {
         Feline feline = new Feline();
+        Lion lion = new Lion("Самец", feline);
         int expected = 1;
-        int actual = feline.getKittens();
+        int actual = lion.getKittens();
         Assert.assertEquals(expected, actual);
     }
 

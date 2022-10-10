@@ -2,29 +2,9 @@ package com.example;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-
 import java.util.List;
 
-import static org.junit.Assert.*;
-
-@RunWith(Parameterized.class)
 public class FelineTest {
-
-    public FelineTest(int kittensCount) {
-        this.kittensCount = kittensCount;
-    }
-
-    int kittensCount;
-
-    @Parameterized.Parameters
-    public static Object[] getKittensCount() {
-        return new Object[] {
-                3,
-                5,
-        };
-    }
 
     @Test
     public void eatMeatPredatorTest() throws Exception {
@@ -59,14 +39,6 @@ public class FelineTest {
         Feline feline = new Feline();
         int expected = 1;
         int actual = feline.getKittens();
-        Assert.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void getKittensByNumberTest(){
-        Feline feline = new Feline();
-        int expected = kittensCount;
-        int actual = feline.getKittens(kittensCount);
         Assert.assertEquals(expected, actual);
     }
 }
